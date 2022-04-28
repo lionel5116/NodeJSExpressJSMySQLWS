@@ -75,6 +75,16 @@ router.get('/fetchnotes', async function(req, res, next) {
   }
 });
 
+router.get('/fetchSchoolYears', async function(req, res, next) {
+  try {
+    //we use the service to fetch our data and return to our route
+    res.json(await myService.getSchoolYears(req.query.page));
+  } catch (err) {
+    console.error(`Error while getting data `, err.message);
+    next(err);
+  }
+});
+
 
 /*
 POST programming language 

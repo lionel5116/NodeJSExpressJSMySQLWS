@@ -49,6 +49,7 @@ http://localhost:4051/hisdnutritionalservices/fetchtblmilksub
 http://localhost:4051/hisdnutritionalservices/fetchtblsupplementname
 http://localhost:4051/hisdnutritionalservices/fetchtbltrainingtype
 http://localhost:4051/hisdnutritionalservices/fetchnotes
+http://localhost:4051/hisdnutritionalservices/fetchSchoolYears
 */
 app.use("/hisdnutritionalservices", router);
 

@@ -24,7 +24,7 @@ async function getAllStudents(page = 1){
 async function getSchoolListings(page = 1){
   const offset = helper.getOffset(page, config.listPerPage);
   const rows = await db.query(
-    `SELECT * FROM hisdnutritionalservices.schoollisting LIMIT ${offset},${config.listPerPage}`
+    `SELECT SchoolName as NameOfInstution FROM hisdnutritionalservices.schoollisting LIMIT ${offset},${config.listPerPage}`
   );
 
 
@@ -40,7 +40,7 @@ async function getSchoolListings(page = 1){
 async function gettblfoodstobeommited(page = 1){
   const offset = helper.getOffset(page, config.listPerPage);
   const rows = await db.query(
-    `SELECT * FROM hisdnutritionalservices.tblfoodstobeommited LIMIT ${offset},${config.listPerPage}`
+    `SELECT FOmmittedName as ItemName FROM hisdnutritionalservices.tblfoodstobeommited LIMIT ${offset},${config.listPerPage}`
   );
 
  
@@ -56,7 +56,7 @@ async function gettblfoodstobeommited(page = 1){
 async function getttblmilksub(page = 1){
   const offset = helper.getOffset(page, config.listPerPage);
   const rows = await db.query(
-    `SELECT * FROM hisdnutritionalservices.tblmilksub LIMIT ${offset},${config.listPerPage}`
+    `SELECT MilkSubName as ItemName FROM hisdnutritionalservices.tblmilksub LIMIT ${offset},${config.listPerPage}`
   );
 
  
@@ -72,7 +72,7 @@ async function getttblmilksub(page = 1){
 async function gettblsupplementname(page = 1){
   const offset = helper.getOffset(page, config.listPerPage);
   const rows = await db.query(
-    `SELECT * FROM hisdnutritionalservices.tblsupplementname LIMIT ${offset},${config.listPerPage}`
+    `SELECT SupplementName as ItemName FROM hisdnutritionalservices.tblsupplementname LIMIT ${offset},${config.listPerPage}`
   );
 
  
@@ -89,7 +89,7 @@ async function gettblsupplementname(page = 1){
 async function getttbltrainingtype(page = 1){
   const offset = helper.getOffset(page, config.listPerPage);
   const rows = await db.query(
-    `SELECT * FROM hisdnutritionalservices.tbltrainingtype LIMIT ${offset},${config.listPerPage}`
+    `SELECT TrainingType as ItemName FROM hisdnutritionalservices.tbltrainingtype LIMIT ${offset},${config.listPerPage}`
   );
 
  
@@ -106,6 +106,22 @@ async function gettnotes(page = 1){
   const offset = helper.getOffset(page, config.listPerPage);
   const rows = await db.query(
     `SELECT * FROM hisdnutritionalservices.notes LIMIT ${offset},${config.listPerPage}`
+  );
+
+
+  const data = helper.emptyOrRows(rows);
+  const meta = {page};
+
+  return {
+    data,
+    meta
+  }
+}
+
+async function getSchoolYears(page = 1){
+  const offset = helper.getOffset(page, config.listPerPage);
+  const rows = await db.query(
+    `SELECT SchoolYear FROM hisdnutritionalservices.studententrydata group by SchoolYear order by SchoolYear desc LIMIT ${offset},${config.listPerPage}`
   );
 
 
@@ -182,5 +198,6 @@ module.exports = {
     getttblmilksub,
     gettblsupplementname,
     getttbltrainingtype,
-    gettnotes
+    gettnotes,
+    getSchoolYears
   }
