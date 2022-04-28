@@ -10,10 +10,71 @@ router.get('/', async function(req, res, next) {
     //we use the service to fetch our data and return to our route
     res.json(await myService.getAllStudents(req.query.page));
   } catch (err) {
-    console.error(`Error while getting programming languages `, err.message);
+    console.error(`Error while getting student data records `, err.message);
     next(err);
   }
 });
+
+router.get('/fetchschoollisting', async function(req, res, next) {
+  try {
+    //we use the service to fetch our data and return to our route
+    res.json(await myService.getSchoolListings(req.query.page));
+  } catch (err) {
+    console.error(`Error while getting school listings `, err.message);
+    next(err);
+  }
+});
+
+router.get('/fetchtblfoodstobeommited', async function(req, res, next) {
+  try {
+    //we use the service to fetch our data and return to our route
+    res.json(await myService.gettblfoodstobeommited(req.query.page));
+  } catch (err) {
+    console.error(`Error while getting data `, err.message);
+    next(err);
+  }
+});
+
+router.get('/fetchtblmilksub', async function(req, res, next) {
+  try {
+    //we use the service to fetch our data and return to our route
+    res.json(await myService.getttblmilksub(req.query.page));
+  } catch (err) {
+    console.error(`Error while getting data `, err.message);
+    next(err);
+  }
+});
+
+router.get('/fetchtblsupplementname', async function(req, res, next) {
+  try {
+    //we use the service to fetch our data and return to our route
+    res.json(await myService.gettblsupplementname(req.query.page));
+  } catch (err) {
+    console.error(`Error while getting data `, err.message);
+    next(err);
+  }
+});
+
+router.get('/fetchtbltrainingtype', async function(req, res, next) {
+  try {
+    //we use the service to fetch our data and return to our route
+    res.json(await myService.getttbltrainingtype(req.query.page));
+  } catch (err) {
+    console.error(`Error while getting data `, err.message);
+    next(err);
+  }
+});
+
+router.get('/fetchnotes', async function(req, res, next) {
+  try {
+    //we use the service to fetch our data and return to our route
+    res.json(await myService.gettnotes(req.query.page));
+  } catch (err) {
+    console.error(`Error while getting data `, err.message);
+    next(err);
+  }
+});
+
 
 /*
 POST programming language 

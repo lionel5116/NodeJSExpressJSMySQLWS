@@ -41,7 +41,15 @@ app.get("/", (req, res) => {
 });
 
 //with your router helper, create a /programming-languages  (route)
-// http://localhost:4051/hisdnutritionalservices
+/* MY ROUTES
+http://localhost:4051/hisdnutritionalservices
+http://localhost:4051/hisdnutritionalservices/fetchschoollisting
+http://localhost:4051/hisdnutritionalservices/fetchtblfoodstobeommited
+http://localhost:4051/hisdnutritionalservices/fetchtblmilksub
+http://localhost:4051/hisdnutritionalservices/fetchtblsupplementname
+http://localhost:4051/hisdnutritionalservices/fetchtbltrainingtype
+http://localhost:4051/hisdnutritionalservices/fetchnotes
+*/
 app.use("/hisdnutritionalservices", router);
 
 /* Error handler middleware */

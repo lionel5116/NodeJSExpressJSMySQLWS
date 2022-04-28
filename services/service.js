@@ -21,6 +21,103 @@ async function getAllStudents(page = 1){
   }
 }
 
+async function getSchoolListings(page = 1){
+  const offset = helper.getOffset(page, config.listPerPage);
+  const rows = await db.query(
+    `SELECT * FROM hisdnutritionalservices.schoollisting LIMIT ${offset},${config.listPerPage}`
+  );
+
+
+  const data = helper.emptyOrRows(rows);
+  const meta = {page};
+
+  return {
+    data,
+    meta
+  }
+}
+
+async function gettblfoodstobeommited(page = 1){
+  const offset = helper.getOffset(page, config.listPerPage);
+  const rows = await db.query(
+    `SELECT * FROM hisdnutritionalservices.tblfoodstobeommited LIMIT ${offset},${config.listPerPage}`
+  );
+
+ 
+  const data = helper.emptyOrRows(rows);
+  const meta = {page};
+
+  return {
+    data,
+    meta
+  }
+}
+
+async function getttblmilksub(page = 1){
+  const offset = helper.getOffset(page, config.listPerPage);
+  const rows = await db.query(
+    `SELECT * FROM hisdnutritionalservices.tblmilksub LIMIT ${offset},${config.listPerPage}`
+  );
+
+ 
+  const data = helper.emptyOrRows(rows);
+  const meta = {page};
+
+  return {
+    data,
+    meta
+  }
+}
+
+async function gettblsupplementname(page = 1){
+  const offset = helper.getOffset(page, config.listPerPage);
+  const rows = await db.query(
+    `SELECT * FROM hisdnutritionalservices.tblsupplementname LIMIT ${offset},${config.listPerPage}`
+  );
+
+ 
+  const data = helper.emptyOrRows(rows);
+  const meta = {page};
+
+  return {
+    data,
+    meta
+  }
+}
+
+
+async function getttbltrainingtype(page = 1){
+  const offset = helper.getOffset(page, config.listPerPage);
+  const rows = await db.query(
+    `SELECT * FROM hisdnutritionalservices.tbltrainingtype LIMIT ${offset},${config.listPerPage}`
+  );
+
+ 
+  const data = helper.emptyOrRows(rows);
+  const meta = {page};
+
+  return {
+    data,
+    meta
+  }
+}
+
+async function gettnotes(page = 1){
+  const offset = helper.getOffset(page, config.listPerPage);
+  const rows = await db.query(
+    `SELECT * FROM hisdnutritionalservices.notes LIMIT ${offset},${config.listPerPage}`
+  );
+
+
+  const data = helper.emptyOrRows(rows);
+  const meta = {page};
+
+  return {
+    data,
+    meta
+  }
+}
+
 /*
 async function create(newRec){
   const result = await db.query(
@@ -79,5 +176,11 @@ module.exports = {
 }
 */
 module.exports = {
-    getAllStudents
+    getAllStudents,
+    getSchoolListings,
+    gettblfoodstobeommited,
+    getttblmilksub,
+    gettblsupplementname,
+    getttbltrainingtype,
+    gettnotes
   }
